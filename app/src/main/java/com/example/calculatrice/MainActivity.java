@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
     Spinner mySpinner;
     EditText ecran;
     LinearLayout linearLayout;
@@ -30,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mySpinner = findViewById(R.id.sp);
@@ -63,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
     public void chiffre(View view) {
@@ -73,11 +70,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             if (ecranTxt.equals("NaN") || ecranTxt.equals("0") || ecranTxt.contains("."))
                 ecranTxt = "";
             ecranTxt += chf;
-            ecran.setText(ecranTxt);
         }else {
             ecranTxt += chf;
-            ecran.setText(ecranTxt);
         }
+         ecran.setText(ecranTxt);
     }
 
     public void dot(View view){
@@ -92,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }else{
             ecranTxt += "0" + dot;
         }
-
         ecran.setText(ecranTxt);
     }
 
@@ -105,7 +100,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void delete(View view) {
         String str = ecran.getText().toString();
         if (str.length() > 0){
+            if(str.getCharAt(str.lenght() -1) == ' '){
+                str = str.substring(0, str.length() -1);
+            }
             str = str.substring(0, str.length() -1);
+            if(str.getCharAt(str.lenght() -1) == ' '){
+                str = str.substring(0, str.length() -1);
+            }
             ecran.setText(str);
         }
     }
