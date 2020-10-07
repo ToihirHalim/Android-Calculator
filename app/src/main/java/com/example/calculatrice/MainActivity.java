@@ -100,13 +100,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void delete(View view) {
         String str = ecran.getText().toString();
         if (str.length() > 0){
-            if(str.getCharAt(str.lenght() -1) == ' '){
+            /*if(str.getCharAt(str.lenght() -1) == ' '){
                 str = str.substring(0, str.length() -1);
-            }
+            }*/
             str = str.substring(0, str.length() -1);
-            if(str.getCharAt(str.lenght() -1) == ' '){
+            /*if(str.getCharAt(str.lenght() -1) == ' '){
                 str = str.substring(0, str.length() -1);
-            }
+            }*/
             ecran.setText(str);
         }
     }
